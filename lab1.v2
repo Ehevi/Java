@@ -8,12 +8,16 @@ public class World
     public static Direction[] toEnum(String gdzie)
     {
         int howlong=gdzie.length();
+        out.print("howLong: ");
+        out.println(howlong);
         int counter=0; char value;
         for(int i=0; i<howlong; i++)
         {
             value=gdzie.charAt(i);
             if(value=='f'||value=='b'||value=='r'||value=='l') counter++;
         }
+        out.print("counter: ");
+        out.println(counter);
         Direction[] array=new Direction[counter];
         int index=0;
         for(int i=0; i<howlong; i++)
@@ -23,22 +27,24 @@ public class World
             {
                 case 'f':
                     array[index] = Direction.FORWARD;
-                    if(array[index]==Direction.FORWARD) out.println("wprowadzono f");
+                    index++;
                     break;
                 case 'b':
                     array[index] = Direction.BACKWARD;
+                    index++;
                     break;
                 case 'r':
                     array[index] = Direction.RIGHT;
+                    index++;
                     break;
                 case 'l':
                     array[index] = Direction.LEFT;
+                    index++;
+                    break;
+                default :
                     break;
             }
-            index++;
         }
-        out.println(index);
-        out.println(array.length);
         return array;
     }
 
